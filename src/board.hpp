@@ -11,6 +11,7 @@
 
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include <memory>
 
 class Board
 {
@@ -99,7 +100,7 @@ private:
     const int height;
     
     int **board;
-    
+        
     const int no_color = 0;
     int total_colors;
     int first_column;

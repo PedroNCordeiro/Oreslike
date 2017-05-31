@@ -557,6 +557,13 @@ void Scene::Close()
     ui_texture.Free();
     game_over_texture.Free();
     end_game_texture.Free();
+    score_texture.Free();
+    level_texture.Free();
+    for (int i = 0; i < MAXIMUM_COLORS; i ++)
+    {
+        block_textures[i].Free();
+    }
+    
     
     // Free fonts
     TTF_CloseFont( score_font );
