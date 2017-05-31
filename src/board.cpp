@@ -16,6 +16,7 @@ Board::Board(int w, int h, int first_col, int total_col) : width(w), height(h), 
         board[i] = new int [height];
     }
     
+    
     number_blocks = new int[width];
     
     InitVariables();
@@ -24,8 +25,12 @@ Board::Board(int w, int h, int first_col, int total_col) : width(w), height(h), 
 // Deallocate our board
 Board::~Board()
 {
-    delete board;
-    delete number_blocks;
+    for (int i = 0; i < width; i++) {
+        delete [] board[i];
+    }
+    delete [] board;
+
+    delete [] number_blocks;
 }
 
 void Board::InitVariables()
