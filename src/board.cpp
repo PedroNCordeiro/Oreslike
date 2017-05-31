@@ -16,7 +16,6 @@ Board::Board(int w, int h, int first_col, int total_col) : width(w), height(h), 
         board[i] = new int [height];
     }
     
-    
     number_blocks = new int[width];
     
     InitVariables();

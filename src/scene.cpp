@@ -574,7 +574,7 @@ void Scene::Close()
     game_over_font = NULL;
     
     
-    //Destroy window
+    //Destroy window and renderer
     SDL_DestroyRenderer( renderer );
     SDL_DestroyWindow( window );
     window = NULL;
