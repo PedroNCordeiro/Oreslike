@@ -11,17 +11,16 @@
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include <memory>
 
 #include "texture.hpp"
 
 class Block
 {
 public:
-    Block(std::shared_ptr<Texture> t);
-    std::shared_ptr<Texture> GetTexture() const;
+    Block();
+    Texture* GetTexture();
 private:
-    std::shared_ptr<Texture> texture;
+    Texture texture;
 };
 
 

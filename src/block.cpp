@@ -8,12 +8,12 @@
 
 #include "block.hpp"
 
-Block::Block(std::shared_ptr<Texture> t)
+Block::Block()
 {
-    this->texture = t;
+    
 }
 
-std::shared_ptr<Texture> Block::GetTexture() const
+Texture* Block::GetTexture()
 {
-    return this->texture;
+    return &texture;
 }

@@ -122,11 +122,13 @@ bool Scene::LoadMedia()
 
     //Load PNG block textures
     std::string color_name;
+    Texture* block_texture;
     for (int i = 0; i < MAXIMUM_COLORS; i++) {
-        block_textures[i].SetScreenRenderer(renderer);
+        block_texture = blocks[i].GetTexture();
+        block_texture->SetScreenRenderer(renderer);
         
         color_name = "assets/images/" + POSSIBLE_COLORS[i] + ".png";
-        if (!block_textures[i].LoadFromFile(color_name))
+        if (!block_texture->LoadFromFile(color_name))
         {
             printf( "Failed to load block texture!\n" );
             success = false;
@@ -331,7 +333,8 @@ void Scene::RenderBlock(int color, int board_x, int board_y, bool colored)
     if (colored)
     {
         //Render texture to screen
-        block_textures[color - 1].Render(block_rect.x, block_rect.y);
+        //block_textures[color - 1].Render(block_rect.x, block_rect.y);
+        blocks[color - 1].GetTexture()->Render(block_rect.x, block_rect.y);
     }
     // Draw black outline
     SDL_SetRenderDrawColor( renderer, 0x00, 0x00, 0x00, 0xFF );
@@ -561,7 +564,7 @@ void Scene::Close()
     level_texture.Free();
     for (int i = 0; i < MAXIMUM_COLORS; i ++)
     {
-        block_textures[i].Free();
+        blocks[i].GetTexture()->Free();
     }
     
     

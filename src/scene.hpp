@@ -20,6 +20,7 @@
 #include "board.hpp"
 #include "timer.hpp"
 #include "texture.hpp"
+#include "block.hpp"
 
 class Scene
 {
@@ -106,7 +107,8 @@ private:
     Mix_Music* bg_music;
     
     // Block resources
-    Texture block_textures[MAXIMUM_COLORS];
+    Block blocks[MAXIMUM_COLORS];
+    //Texture block_textures[MAXIMUM_COLORS];
     Mix_Chunk* block_sound[TOTAL_SOUNDS];
     
     // Score display
