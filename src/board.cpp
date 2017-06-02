@@ -336,7 +336,8 @@ void Board::NextLevel()
     if (level <= max_level)
     {
         level++;
-        first_column--; // The next level starts with less empty columns
+        if (first_column > 0)
+            first_column--; // The next level starts with less empty columns
         total_colors++; // Incrementing the number of block colors to make it harder
         score = 0;
     }
